@@ -48,7 +48,7 @@ export default function Footer({ compact = false }: FooterProps) {
               className='glass px-8 py-4 rounded-2xl text-[16px] font-semibold text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2'>
               {isDownloading ? (
                 <>
-                  <div className='w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin'></div>
+                  <div className='w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin' />
                   다운로드 중...
                 </>
               ) : (

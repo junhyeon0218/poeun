@@ -34,7 +34,7 @@ export default function Skills({ compact = false }: SkillsProps) {
           {skills.map((category, index) => (
             <div key={index} className='glass rounded-2xl p-6 hover:bg-white/15 transition-all duration-300'>
               <h3 className='text-[18px] font-semibold mb-3 text-white flex items-center gap-2'>
-                <span className='w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full'></span>
+                <span className='w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full' />
                 {category.category}
               </h3>
               <p className='text-[15px] text-white/70 mb-4'>{category.description}</p>

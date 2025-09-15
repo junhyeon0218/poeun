@@ -21,12 +21,12 @@ export async function GET() {
       projects,
     };
     return NextResponse.json(body, { status: 200 });
-  } catch (e: any) {
+  } catch (e: unknown) {
     const body: ProjectsApiResponse = {
       hasError: true,
       projectsCount: 0,
       projects: [],
-      error: e?.message ?? 'Unknown error',
+      error: e instanceof Error ? e.message : 'Unknown error',
     };
     return NextResponse.json(body, { status: 500 });
   }

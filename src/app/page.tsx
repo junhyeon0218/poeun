@@ -5,7 +5,7 @@ import HomeClient from '@/components/HomeClient';
 interface ProjectsApiResponse {
   hasError: boolean;
   projectsCount: number;
-  projects: any[];
+  projects: unknown[];
   error?: string;
 }
 
@@ -23,7 +23,7 @@ export default async function Home() {
     if (response.ok) {
       initialData = await response.json();
     }
-  } catch (error) {}
+  } catch (_error) {}
 
   return (
     <SWRConfig value={{ fallback: { [PROJECTS_KEY]: initialData } }}>

@@ -35,7 +35,7 @@ export default function ImageSlider({ images, title }: ImageSliderProps) {
     <div className='w-full'>
       <div className='relative w-full aspect-[16/10] bg-gray-800 rounded-2xl overflow-hidden mb-6 shadow-2xl border border-white/20'>
         <Image
-          src={images[currentIndex]}
+          src={images[currentIndex] || ''}
           alt={`${title} - 이미지 ${currentIndex + 1}`}
           fill
           className='object-contain bg-gradient-to-br from-gray-900/50 to-gray-800/50'
