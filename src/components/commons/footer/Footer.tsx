@@ -10,8 +10,16 @@ export default function Footer({ compact = false }: FooterProps) {
   const handleDownloadResume = async () => {
     setIsDownloading(true);
     try {
-      alert('이력서 다운로드 준비 중입니다. 곧 업데이트될 예정입니다.');
-    } catch (_error) {
+      // 이력서 파일 다운로드
+      const link = document.createElement('a');
+      link.href = '/file/resume.pdf';
+      link.download = '김준현_이력서.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('이력서 다운로드 중 오류가 발생했습니다:', error);
+      alert('이력서 다운로드 중 오류가 발생했습니다.');
     } finally {
       setIsDownloading(false);
     }
