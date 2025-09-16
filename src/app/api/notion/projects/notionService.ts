@@ -10,7 +10,7 @@ const toText = (arr: { plain_text?: string }[] = []) =>
 const toTextArray = (arr: { plain_text?: string }[] = []) =>
   toText(arr)
     .replace(/\r\n|\r/g, '\n')
-    .split(/\n+|•|\-/)
+    .split(/\s*~+\s*/g)
     .map(s => s.trim())
     .filter(Boolean);
 
