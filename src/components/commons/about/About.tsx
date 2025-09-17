@@ -19,7 +19,7 @@ export default function About({ compact = false }: AboutProps) {
             <div className='flex-shrink-0'>
               <div className='w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg'>
                 <Image
-                  src='/images/profile.jpg'
+                  src='/images/profile.png'
                   alt='Profile'
                   width={256}
                   height={256}
