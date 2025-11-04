@@ -33,7 +33,7 @@ const parseRoleAndContributions = (roleText: string, contributionText: string) =
     const contribution = contributions[index] || '';
 
     const contributionItems = contribution
-      .split(/\n+|•|\-/)
+      .split(/&amp;|&/)
       .map(item => item.trim())
       .filter(Boolean);
 
