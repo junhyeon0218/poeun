@@ -75,9 +75,7 @@ export default function About({ compact = false }: AboutProps) {
                           target='_blank'
                           rel='noopener noreferrer'
                           className='flex items-center gap-2 hover:text-green-600 transition-colors'>
-                          <svg className='w-5 h-5' fill='currentColor' viewBox='0 0 24 24'>
-                            <path d='M3 0C1.338 0 0 1.338 0 3v18c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3V3c0-1.662-1.338-3-3-3H3zm6.883 6.172c3.292 0 5.953 2.661 5.953 5.953 0 3.292-2.661 5.953-5.953 5.953-3.292 0-5.953-2.661-5.953-5.953 0-3.292 2.661-5.953 5.953-5.953zm2.844 2.844c-1.491 0-2.688 1.197-2.688 2.688S11.236 14.392 12.727 14.392s2.688-1.197 2.688-2.688-1.197-2.688-2.688-2.688z' />
-                          </svg>
+                          <img src='/images/velog.svg' alt='Velog' className='w-5 h-5' />
                           Velog
                         </a>
                         <a

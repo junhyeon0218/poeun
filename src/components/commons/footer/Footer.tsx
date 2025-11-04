@@ -6,6 +6,7 @@ type FooterProps = { compact?: boolean };
 
 export default function Footer({ compact = false }: FooterProps) {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [isDownloadingPortfolio, setIsDownloadingPortfolio] = useState(false);
 
   const handleDownloadResume = async () => {
     setIsDownloading(true);
@@ -22,6 +23,23 @@ export default function Footer({ compact = false }: FooterProps) {
       alert('이력서 다운로드 중 오류가 발생했습니다.');
     } finally {
       setIsDownloading(false);
+    }
+  };
+
+  const handleDownloadPortfolio = async () => {
+    setIsDownloadingPortfolio(true);
+    try {
+      const link = document.createElement('a');
+      link.href = '/file/portfolio.pdf';
+      link.download = '김준현_포트폴리오.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('포트폴리오 다운로드 중 오류가 발생했습니다:', error);
+      alert('포트폴리오 다운로드 중 오류가 발생했습니다.');
+    } finally {
+      setIsDownloadingPortfolio(false);
     }
   };
 
@@ -61,8 +79,23 @@ export default function Footer({ compact = false }: FooterProps) {
                 </>
               ) : (
                 <>
-                  <span>📄</span>
                   이력서 다운로드
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={handleDownloadPortfolio}
+              disabled={isDownloadingPortfolio}
+              className='glass px-8 py-4 rounded-2xl text-[16px] font-semibold text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2'>
+              {isDownloadingPortfolio ? (
+                <>
+                  <div className='w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin' />
+                  다운로드 중...
+                </>
+              ) : (
+                <>
+                  포트폴리오 다운로드
                 </>
               )}
             </button>
@@ -70,7 +103,6 @@ export default function Footer({ compact = false }: FooterProps) {
             <button
               onClick={scrollToProjects}
               className='glass px-8 py-4 rounded-2xl text-[16px] font-semibold text-white hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center gap-2'>
-              <span>💻</span>
               프로젝트 보기
             </button>
           </div>
@@ -107,9 +139,7 @@ export default function Footer({ compact = false }: FooterProps) {
                 target='_blank'
                 rel='noopener noreferrer'
                 className='glass p-3 rounded-xl hover:bg-white/20 transition-all duration-300 hover:scale-110'>
-                <svg className='w-6 h-6 text-white' fill='currentColor' viewBox='0 0 24 24'>
-                  <path d='M3 0C1.338 0 0 1.338 0 3v18c0 1.662 1.338 3 3 3h18c1.662 0 3-1.338 3-3V3c0-1.662-1.338-3-3-3H3zm6.883 6.172c3.292 0 5.953 2.661 5.953 5.953 0 3.292-2.661 5.953-5.953 5.953-3.292 0-5.953-2.661-5.953-5.953 0-3.292 2.661-5.953 5.953-5.953zm2.844 2.844c-1.491 0-2.688 1.197-2.688 2.688S11.236 14.392 12.727 14.392s2.688-1.197 2.688-2.688-1.197-2.688-2.688-2.688z' />
-                </svg>
+                <img src='/images/velog.svg' alt='Velog' className='w-6 h-6' />
               </a>
             </div>
           </div>
