@@ -5,7 +5,7 @@ export async function GET() {
     const response = await fetch(`https://api.notion.com/v1/databases/${process.env.NOTION_RESUME_DATABASE_ID}/query`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.NOTION_TOKEN}`,
+        Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
         'Content-Type': 'application/json',
         'Notion-Version': '2022-06-28',
       },
@@ -19,7 +19,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ url: resumeFile });
-  } catch (error) {
+  } catch (_error: unknown) {
     return NextResponse.json({ error: 'Failed to fetch resume' }, { status: 500 });
   }
 }
